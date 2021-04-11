@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    demo:
+        ports:
+            - 3000:3000
+        container_name: docsify
+        volumes:
+            - ./docs:/docs
+        image: docsify/demo
