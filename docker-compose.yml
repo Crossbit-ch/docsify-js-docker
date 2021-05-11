@@ -1,13 +1,13 @@
 version: '3'
 services:
   docsify:
+    image: buenzlis/docsify-js:latest
+    container_name: docsify-js
     restart: unless-stopped
-    build: ./
-    container_name: docsify_test
     ports:
-      - "3000:3000"
-      - "35729:35729"
-    volumes:
-        - ./docs:/docsify
-    working_dir: /docsify
-    command: docsify serve . -p 3000 --livereload-port 35729
+        - "10000:10000"
+        - "35729:35729"
+        volumes:
+            - ./docs:/docsify
+            working_dir: /docsify
+            command: docsify serve . -p 10000 --livereload-port 35729
