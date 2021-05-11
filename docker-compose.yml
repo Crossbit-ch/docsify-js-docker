@@ -1,10 +1,13 @@
-version: '3.3'
-
+version: '3'
 services:
-    docsify:
-        image: buenzlis/docsify-js:beta
-        ports:
-            - 3000:3000
-        volumes:
-            - ./docs:/docs
-        restart: unless-stopped
+  docsify:
+    restart: unless-stopped
+    build: ./
+    container_name: docsify_test
+    ports:
+      - "3000:3000"
+      - "35729:35729"
+    volumes:
+        - ./docs:/docsify
+    working_dir: /docsify
+    command: docsify serve . -p 3000 --livereload-port 35729
